@@ -1,1 +1,1 @@
-worker: node elite.js
+worker: node index.js
