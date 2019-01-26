@@ -1,4 +1,3 @@
-//created by iiKillerxSG (All rights reserved to iiKillerxSG)
 const Discord = require('discord.js');
 const ticket = require('./Data/tickets.json');
 const client = new Discord.Client({disableEveryone: true});
@@ -222,7 +221,10 @@ if(message.content.toLowerCase().startsWith(prefix + `new`)) {
 
 
 if(message.content.toLowerCase().startsWith(prefix + `close`)) {	
-	let team = message.member.roles.find("name", "● Élite » Team");
+	 if(!setrole[message.guild.id]) setrole[message.guild.id] = {
+    role: "Support Team"
+}
+	let team = message.member.roles.find("name", `${setrole[message.guild.id].role}`);
 	 const d11x1xx = new Discord.RichEmbed()
      .setDescription(":x: You do not have permission for that command! If you believe this is a mistake please add the role called \`\`● Élite » Team\`\` to yourself.")  
      .setColor("22BF41");
@@ -259,5 +261,71 @@ if(message.content.toLowerCase().startsWith(prefix + `close`)) {
 });
 
   
+client.on('message', message => {
+if(message.content === `${prefix}help`)	{
+let helpembed = new Discord.RichEmbed()
+.setTitle('My Help List:')
+.addField(`${prefix}new`, `To Create A New Ticket`)
+.addField(`${prefix}close`, `To Close The Ticket`)
+.addField(`${prefix}setcategory`, `To Set The Tickets Category`)
+.addField(`${prefix}setrole`, `To Set The Staff Role`)
+.addField(`${prefix}help`, `To See This List`)
+.addField(`${prefix}botinfo`, `To See The Bot Informations`)
+.addField(`${prefix}serverinfo`, `To See The Server Informations`)
+.setColor('GREEN')
+message.channel.sendEmbed(helpembed)
+}})
+
+
+  client.on('message', message => {
+  if (message.content.startsWith(`${prefix}botinfo`)) {
+  message.channel.send({
+  embed: new Discord.RichEmbed()
+     .setAuthor(client.user.username,client.user.avatarURL)
+     .setThumbnail(client.user.avatarURL)
+     .setColor('RANDOM')
+     .setTitle('``Informations About Ticktey Pro Bot``')
+            .addField('**My Ping**' , [`${Date.now() - message.createdTimestamp}` + 'MS'], true) 
+            .addField('**RAM Usage**', `[${(process.memoryUsage().rss / 1048576).toFixed()}MB]`, true) 
+            .addField('**Servers**', [client.guilds.size], true) 
+            .addField('**Channels**' , `[ ${client.channels.size} ]` , true) 
+            .addField('**Users**' ,`[ ${client.users.size} ]` , true) 
+            .addField('**My Name**' , `[ ${client.user.tag} ]` , true) 
+            .addField('**My ID**' , `[ ${client.user.id} ]` , true) 
+            .addField('**DiscordJS**' , `[ ${Discord.version} ]` , true) 
+            .addField('**NodeJS**' , `[ ${process.version} ]` , true) 
+            .addField('**Arch**' , `[ ${process.arch} ]` , true) 
+            .addField('**Platform**' , `[ ${process.platform} ]` , true) 
+                  .addField('**My Prefix**' , `[ ${prefix} ]` , true) 
+                  .addField('**My Language**' , `[ JavaScript | Node.js ]` , true) 
+           .setFooter(`${client.user.avatarURL}`, client.user.username)
+  })
+  }
+});
+
+client.on('message', message => {
+if(message.content.startsWith(prefix + "serverinfo")) { // الامر
+  if(!message.guild.member(message.author).hasPermission("ADMINISTRATOR")) return message.reply(`**هذه الخاصية للادارة فقط** ❎ `)
+if(!message.channel.guild) return message.reply(' ');
+const millis = new Date().getTime() - message.guild.createdAt.getTime();
+const now = new Date();
+dateFormat(now, 'dddd, mmmm dS, yyyy, h:MM:ss TT');
+const verificationLevels = ['None', 'Low', 'Medium', 'Insane', 'Extreme'];
+const days = millis / 1000 / 60 / 60 / 24;
+let roles = client.guilds.get(message.guild.id).roles.map(r => r.name);
+var embed  = new Discord.RichEmbed()
+.setAuthor(message.guild.name, message.guild.iconURL)
+.addField("**🆔 Server ID:**", message.guild.id,true)
+.addField("**📅 Created On**", message.guild.createdAt.toLocaleString(),true)
+.addField("**👑 Owned by**",`${message.guild.owner.user.username}#${message.guild.owner.user.discriminator}`)
+.addField("**👥 Members**",`[${message.guild.memberCount}]`,true)
+.addField('**💬 Channels **',`**${message.guild.channels.filter(m => m.type === 'text').size}**` + ' text | Voice  '+ `**${message.guild.channels.filter(m => m.type === 'voice').size}** `,true)
+.addField("**🌍 Others **" , message.guild.region,true)
+.addField("**🔐 Roles **",`**[${message.guild.roles.size}]** Role `,true)
+.setColor('#000000')
+message.channel.sendEmbed(embed)
+
+}
+});
 
 client.login(config.token);
