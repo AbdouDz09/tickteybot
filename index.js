@@ -54,10 +54,6 @@ client.on("message", async message => {
      .setDescription(`:x: Usage: \`\`${prefix}setcategory <name>\`\``)  
      .setColor("22BF41");
 	if(!newcategory) return message.channel.send(NOTX1);
-		  const CANT = new Discord.RichEmbed()
-     .setDescription(`:x: I can't find this category \`\`${newcategory}\`\``)  
-     .setColor("22BF41");
-		if(!thiscategory) return message.channel.send(CANT);
 	const filtr = new Discord.RichEmbed()
      .setDescription(`:x: This not a category \`\`${newcategory}\`\``)  
      .setColor("22BF41");
