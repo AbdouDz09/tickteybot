@@ -39,7 +39,6 @@ client.on("message", async message => {
 		const category = setc[message.guild.id].category
 		let newcategory = message.content.split(' ').slice(1).join(' ');
 		let thiscategory = message.guild.channels.find('name', newcategory);
-                let fltrc = message.guild.channels.filter(m => m.name === newcategory).type === 'category';
  if(!setrole[message.guild.id]) setrole[message.guild.id] = {
     role: "Support Team"
 }
@@ -54,15 +53,15 @@ client.on("message", async message => {
      .setDescription(`:x: Usage: \`\`${prefix}setcategory <name>\`\``)  
      .setColor("22BF41");
 	if(!newcategory) return message.channel.send(NOTX1);
-	const filtr = new Discord.RichEmbed()
-     .setDescription(`:x: This not a category \`\`${newcategory}\`\``)  
+		  const CANT = new Discord.RichEmbed()
+     .setDescription(`:x: I can't find this category \`\`${newcategory}\`\``)  
      .setColor("22BF41");
-		if(fltrc) return message.channel.send(filtr);
+		if(!thiscategory) return message.channel.send(CANT);
 	  setc[message.guild.id].category = newcategory	
 		  const D1 = new Discord.RichEmbed()
      .setDescription(`:white_check_mark: The tickets category has been set to \`\`${newcategory}\`\``)  
      .setColor("22BF41");
-	message.channel.send(D1);
+	message.channel.send(D1);//d1 = done 
 		
 	}
 });
