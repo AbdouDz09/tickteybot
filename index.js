@@ -299,7 +299,7 @@ message.channel.sendEmbed(helpembed)
             .addField('**Platform**' , `[ ${process.platform} ]` , true) 
                   .addField('**My Prefix**' , `[ ${prefix} ]` , true) 
                   .addField('**My Language**' , `[ JavaScript | Node.js ]` , true) 
-           .setFooter(`${client.user.avatarURL}`, client.user.username)
+ 
   })
   }
 });
