@@ -170,7 +170,7 @@ if(message.content.toLowerCase().startsWith(prefix + `new`)) {
      .setDescription(`Dear ${message.author}, \n\nThank you for reaching out to our support team!\n\nWe will get back to you as soon as possible\n\n`) 
      .addField('Subject' , `No subject has been given`)
      .setColor("22BF41")
-     .setFooter(`Nice-Ti v2 || By Sw3rD#0010` , client.user.avatarURL)
+     .setFooter(`Ticktey Pro` , client.user.avatarURL)
      .setTimestamp();
             ticketx.send({embed: nonedear });
         }).catch(console.error);
@@ -217,7 +217,7 @@ if(message.content.toLowerCase().startsWith(prefix + `new`)) {
      .setDescription(`Dear ${message.author}, \n\nThank you for reaching out to our support team!\n\nWe will get back to you as soon as possible\n\n`) 
      .addField('Subject' , subject)
      .setColor("22BF41")
-     .setFooter(`Nice-Ti v2 || By Sw3rD#0010` , client.user.avatarURL)
+     .setFooter(`Ticktey Pro` , client.user.avatarURL)
      .setTimestamp();
             ticketx.send({embed: nonedear });
         }).catch(console.error);
