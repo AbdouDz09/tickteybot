@@ -19,7 +19,7 @@ client.on('ready',  () => {
   console.log('╔[═════════════════════════════════════]╗');
   console.log(`Logged in as * [ " ${client.user.username} " ]`);
   console.log('')
-  console.log('Informations About Rainbow bot:')
+  console.log(`Informations About ${client.user.username}:`)
   console.log('')
   console.log(`Servers! [ " ${client.guilds.size} " ]`);
   console.log(`Users! [ " ${client.users.size} " ]`);
