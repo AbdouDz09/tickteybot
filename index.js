@@ -9,13 +9,37 @@ const setc = {}
 const setrole = {}
 
 client.on('ready',  () => {
-console.log('~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~');
-console.log('~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~');
-console.log('~~~~~~~~~~~~~~~~~~~~~~~~~~~The Bot Is Online~~~~~~~~~~~');
-console.log('~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~');
-console.log('~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~');
-console.log(`Logged in as  * [ " ${client.user.username} " ] servers! [ " ${client.guilds.size} " ] Users! [ " ${client.users.size} " ]`);
-client.user.setGame(`Anything`,'https://www.twitch.tv/Shit-Server');	
+  console.log(`Logged in as ${client.user.tag}!`);
+  console.log('')
+  console.log('')
+  console.log('╔[═════════════════════════════════════════════════════════════════]╗')
+  console.log(`[Start] ${new Date()}`);
+  console.log('╚[═════════════════════════════════════════════════════════════════]╝')
+  console.log('')
+  console.log('╔[═════════════════════════════════════]╗');
+  console.log(`Logged in as * [ " ${client.user.username} " ]`);
+  console.log('')
+  console.log('Informations About Rainbow bot:')
+  console.log('')
+  console.log(`Servers! [ " ${client.guilds.size} " ]`);
+  console.log(`Users! [ " ${client.users.size} " ]`);
+  console.log(`Channels! [ " ${client.channels.size} " ]`);
+  console.log(`Arch! [ " ${process.arch} " ]`);
+  console.log(`Platform! [ " ${process.platform} " ]`);
+  console.log(`Node Version! [ " ${process.version}" ]`);
+  console.log(`Prefix! [ " ${prefix}" ]`);
+  console.log(`Language! [ " NodeJS " ]`);
+  console.log(`Ram Usage! [ " ${(process.memoryUsage().rss / 1048576).toFixed()}MB " ]`);
+  console.log('╚[════════════════════════════════════]╝')
+  console.log('')
+  console.log('╔[════════════]╗')
+  console.log(`${client.user.username} Is Online`)
+  console.log('╚[════════════]╝')
+  console.log('')
+  console.log('╔[════════════]╗')
+  console.log('Created By: Revenge')
+console.log('╚[════════════]╝')
+client.user.setGame(`Ticktey Bot Pro Edition`,'https://www.twitch.tv/Tickteybot');	
 });
 
 function clean(text) {
